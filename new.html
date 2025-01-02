@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Gift Box</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 1), rgba(173, 216, 230, 1)); /* Pink to blue gradient */
+    background-size: 400% 400%; /* Allows animation */
+    animation: gradientFade 10s ease infinite; /* Smooth gradient animation */
+    perspective: 1000px;
+}
+
+/* Add keyframes for the gradient animation */
+@keyframes gradientFade {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+        .first {
+            position: absolute; /* Position element relative to the parent */
+            top: 10px; /* Slight offset from the top */
+            left: 50%; /* Center horizontally relative to the viewport */
+            transform: translateX(-50%); /* Adjust horizontal alignment for perfect centering */
+    
+            color: rgba(72, 61, 139, 0.9); /* Muted purple for elegance */
+            font-family: 'Playfair Display', serif; /* Elegant serif font */
+            font-size: 3.5rem; /* Prominent text size */
+            font-style: italic; /* Adds a delicate feel */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            background: linear-gradient(
+                90deg,
+                rgba(173, 216, 230, 0.8), /* Soft pastel blue */
+                rgba(255, 182, 193, 0.8) /* Warm pastel pink */
+                ); /* Smooth gradient background */
+            padding: 8px 12px; /* Adds padding around the text */
+            border-radius: 10px; /* Smooth rounded corners */
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+        }
+
+
+        .container {
+            position: relative;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .gift-box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            border-radius: 5%;
+        }
+
+        .lid {
+            position: absolute;
+            width: 200px;
+            height: 50px;
+            transform-style: preserve-3d;
+            transform-origin: top;
+            transition: transform 0.8s ease;
+            border-radius: 5%;
+        }
+
+        .lid.open {
+            transform: rotateX(-120deg);
+            border-radius: 5%;
+        }
+
+        .lid-top {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #2c2c2c;
+            transform: translateZ(0);
+            border-radius: 5%;
+        }
+
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #2c2c2c;
+            transform-style: preserve-3d;
+            top: 50px;
+            border-radius: 5%;
+        }
+
+        .ribbon-vertical {
+            position: absolute;
+            width: 30px;
+            height: 250px;
+            background: linear-gradient(90deg, #d4af37, #ffd700, #d4af37);
+            left: 85px;
+            top: -25px;
+            z-index: 2;
+            border-radius: 5%;
+        }
+
+        .ribbon-horizontal {
+            position: absolute;
+            width: 250px;
+            height: 30px;
+            background: linear-gradient(#d4af37, #ffd700, #d4af37);
+            top: 85px;
+            left: -25px;
+            z-index: 1;
+            border-radius: 5%;
+        }
+
+        .bow {
+            position: absolute;
+            z-index: 3;
+            top: -20px;
+            left: 60px;
+            border-radius: 5%;
+        }
+
+        .bow-left, .bow-right {
+            position: absolute;
+            width: 40px;
+            height: 70px;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            border-radius: 50px 50px 0 0;
+            border-radius: 5%;
+        }
+
+        .bow-left {
+            transform: rotate(-30deg);
+            left: -10px;
+            border-radius: 5%;
+        }
+
+        .bow-right {
+            transform: rotate(30deg);
+            left: 50px;
+            border-radius: 5%;
+        }
+
+        .bow-center {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ffd700;
+            border-radius: 40%;
+            top: 25px;
+            left: 35px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .gift-box:hover {
+            animation: float 1s ease-in-out infinite;
+            border-radius: 5%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .bottom {
+    margin: 0; 
+    position: absolute; 
+    top: 80%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    
+    color: pink;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 1.5rem;
+    font-weight: bold; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+    text-transform: uppercase; 
+    letter-spacing: 3px; 
+    text-align: bottom;
+}
+
+        .shadow {
+            position: absolute;
+            width: 200px;
+            height: 20px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 50%;
+            bottom: -50px;
+            filter: blur(5px);
+            animation: shadowFloat 1s ease-in-out infinite;
+        }
+
+        @keyframes shadowFloat {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(0.8); opacity: 0.2; }
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            filter: blur(1px);
+            z-index: 1;
+            pointer-events: none;
+            animation: snowfall linear infinite;
+            will-change: transform;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+        /* Overlay for better snowflake visibility */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="firstsong.mp3" type="audio/mp3">
+    </audio>
+    <div class="first">Happy new year Kuku</div>
+    <div class="container">
+        <div class="gift-box">
+            <div class="lid">
+                <div class="lid-top"> </div>
+            </div>
+            <div class="box"></div>
+            <div class="ribbon-vertical"></div>
+            <div class="ribbon-horizontal"></div>
+            <div class="bow">
+                <div class="bow-left"></div>
+                <div class="bow-right"></div>
+                <div class="bow-center"></div>
+            </div>
+        </div>
+        <div class="shadow"></div>
+    </div>
+<div class="bottom">Lau timlai gift❤</div>
+<script>
+        // Wait for the page to load and unmute the audio
+        window.onload = function() {
+            const audio = document.getElementById('backgroundMusic');
+            audio.muted = false; // Unmute audio
+            audio.play(); // Start playing audio
+        };
+    document.querySelector('.container').addEventListener('click', function() {
+        const lid = document.querySelector('.lid');
+        lid.classList.toggle('open');
+        
+        // Redirect to first.html after the animation
+        setTimeout(() => {
+            window.location.href = 'first.html';
+        }, 800); // Wait for the lid animation to finish (0.8s as per CSS)
+    });
+
+        // Snowfall effect
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            
+            // Random starting position
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            
+            // Random animation properties
+            const duration = Math.random() * 5 + 3; // 3-8 seconds
+            const size = Math.random() * 0.8 + 0.5; // 0.5-1.3em
+            
+            snowflake.style.animationDuration = duration + 's';
+            snowflake.style.fontSize = size + 'em';
+            snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+            
+            document.body.appendChild(snowflake);
+            
+            // Remove snowflake after animation
+            setTimeout(() => {
+                snowflake.remove();
+            }, duration * 1000);
+        }
+
+        // Create snowflakes periodically
+        setInterval(createSnowflake, 200);
+
+        // Create initial batch of snowflakes
+        for(let i = 0; i < 20; i++) {
+            setTimeout(createSnowflake, Math.random() * 2000);
+        }
+    </script>
+</script>
+
+
+</body>
+</html>

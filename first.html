@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Question</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            overflow: hidden;
+        }
+
+        .question-container {
+            text-align: center;
+            background: transparent;
+            padding: 30px 20px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .question-container h2 {
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: #ff6f61;
+        }
+
+        .question-container h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .hihi {
+            margin-top: 500px;
+            color: brown;
+        }
+
+        .question-container span {
+            color: #f44336;
+        }
+
+        .question-container p {
+            font-size: 35px;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .question-container p a {
+            text-decoration: none;
+            color: #ffe5e5;
+            font-weight: bold;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .question-container p a:hover {
+            color: #ff3d34;
+        }
+
+        .question-container p a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: #ff6f61;
+            transition: width 0.3s ease;
+        }
+
+        .question-container p a:hover::after {
+            width: 100%;
+            color: #4CAF50;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 95px;
+        }
+
+        .yes-btn, .no-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .yes-btn {
+            background: #4CAF50;
+        }
+
+        .yes-btn:hover {
+            background: #45a049;
+        }
+
+        .no-btn {
+            background: #f44336;
+            position: relative;
+        }
+
+        .no-btn:hover {
+            background: #e53935;
+        }
+
+        @keyframes moveButtonAnim {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(50px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" autoplay loop muted>
+        <source src="lastaudio.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="question-container">
+        <h2>Aray Aray Aray </h2><h3>Eshhhh Dinxu Gift <br>If Gift Chaiye, <span> Yauta Question Ko Answer Deu </span></h3>
+        <p><a href="second.html"> kilik</a></p>
+    </div>
+    <div class="hihi">Hihihihi....</div>
+
+    <script>
+        // Wait for the page to load and unmute the audio
+        window.onload = function() {
+            const audio = document.getElementById('backgroundMusic');
+            audio.muted = false; // Unmute audio
+            audio.play(); // Start playing audio
+        };
+    </script>
+</body>
+</html>
